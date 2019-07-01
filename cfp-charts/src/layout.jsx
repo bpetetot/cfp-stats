@@ -53,7 +53,7 @@ const Layout = () => {
 
   return (
     <div className="layout vertical">
-      <h1>Devfest Nantes 2019 - CFP stats</h1>
+      <h1>Devfest Nantes 2018 - CFP stats</h1>
       <div className="horizontal">
         <div className="counter">
           <span className="counter_count">{data.proposalsCount}</span>
