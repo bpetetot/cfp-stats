@@ -1,0 +1,58 @@
+.layout {
+  margin: 3rem;
+}
+
+.layout h1 {
+  text-align: center;
+  font-size: 3rem;
+}
+
+.layout h2 {
+  text-align: center;
+  width: 100%;
+  margin-top: 2rem;
+}
+
+.vertical {
+  display: flex;
+  flex-direction: column;
+}
+
+.horizontal {
+  display: flex;
+  justify-content: space-around;
+}
+
+.counter {
+  margin: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.counter_count {
+  font-size: 3rem;
+  font-weight: 700;
+}
+
+.counter_label {
+  font-size: 2rem;
+  font-weight: 300;
+}
+
+.item {
+  margin: 2rem;
+  width: 600px;
+  height: 500px;
+}
+
+.graph {
+  margin: 2rem;
+  width: 800px;
+  height: 500px;
+}
+
+.table {
+  margin: 2rem;
+  width: 800px;
+}
