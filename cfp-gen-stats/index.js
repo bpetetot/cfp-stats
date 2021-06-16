@@ -1,10 +1,15 @@
+const fs = require('fs');
 const { get, countBy } = require('lodash');
 const { count, sanitize, groupByDate } = require('./utils');
 
-const proposals = require('./data/proposals');
-const speakers = require('./data/speakers');
-const formats = require('./data/formats');
-const categories = require('./data/categories');
+
+const rawdata = fs.readFileSync('./data/export.json');
+const data = JSON.parse(rawdata);
+
+const proposals = data.talks;
+const speakers = data.speakers;
+const formats = data.formats;
+const categories = data.categories;
 
 const proposalsCount = proposals.length;
 const speakersCount = speakers.length;
@@ -31,7 +36,7 @@ proposals.forEach((p) => {
   count(p.formats, formatsCount, getLabel(formats));
   count(p.categories, categoriesCount, getLabel(categories));
   proposalsByDate = Object.entries(
-    countBy(proposals.map((p) => groupByDate(p.createTimestamp.seconds))),
+    countBy(proposals.map((p) => groupByDate(p.createTimestamp._seconds))),
   ).map(([key, value]) => ({ day: key, value }));
 });
 
