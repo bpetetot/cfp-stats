@@ -21,22 +21,22 @@ const Layout = () => {
     () => data.companiesCount.map(({ label, value }) => ({ id: label, value })),
     [],
   );
-  const proposalsByDayLine = useMemo(
-    () =>
-      data.proposalsByDate
-        .map(({ day, value }) => ({ x: day, y: value }))
-        .reverse(),
-    [],
-  );
-  const proposalsCumulByDayLine = useMemo(() => {
-    const result = [];
-    let cumul = 0;
-    for (let day of proposalsByDayLine) {
-      cumul += day.y;
-      result.push({ ...day, y: cumul });
-    }
-    return result;
-  }, [proposalsByDayLine]);
+  // const proposalsByDayLine = useMemo(
+  //   () =>
+  //     data.proposalsByDate
+  //       .map(({ day, value }) => ({ x: day, y: value }))
+  //       .reverse(),
+  //   [],
+  // );
+  // const proposalsCumulByDayLine = useMemo(() => {
+  //   const result = [];
+  //   let cumul = 0;
+  //   for (let day of proposalsByDayLine) {
+  //     cumul += day.y;
+  //     result.push({ ...day, y: cumul });
+  //   }
+  //   return result;
+  // }, [proposalsByDayLine]);
 
   return (
     <div className="layout vertical">
@@ -59,10 +59,10 @@ const Layout = () => {
         <Pie title="Formats" data={formats} className="item" />
         <Pie title="Categories" data={categories} className="item" />
       </div>
-      <div className="horizontal">
+      {/* <div className="horizontal">
         <Line title="Proposals by day" data={proposalsByDayLine} className="graph" />
         <Line title="Cumulated proposals" data={proposalsCumulByDayLine} className="graph" />
-      </div>
+      </div> */}
       <div className="horizontal">
         <div className="vertical">
           <Pie title="Companies" data={companies.slice(0, 30)} className="item" />

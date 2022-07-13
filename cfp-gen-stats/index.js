@@ -36,7 +36,7 @@ proposals.forEach((p) => {
   count(p.formats, formatsCount, getLabel(formats));
   count(p.categories, categoriesCount, getLabel(categories));
   proposalsByDate = Object.entries(
-    countBy(proposals.map((p) => groupByDate(p.createTimestamp._seconds))),
+    countBy(proposals.map((p) => groupByDate(p?.createTimestamp?._seconds))),
   ).map(([key, value]) => ({ day: key, value }));
 });
 

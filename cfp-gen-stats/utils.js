@@ -24,6 +24,7 @@ const countKey = (key =  'unknown', counter = [], getLabel) => {
 }
 
 const groupByDate = (secs) => {
+  if (!secs) return null
   const date = new Date(1970, 0, 1); // Epoch
   date.setSeconds(secs);
   return date.toISOString().split('T')[0];
